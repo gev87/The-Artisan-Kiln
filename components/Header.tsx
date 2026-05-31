@@ -51,7 +51,7 @@ export default function Header() {
           </nav>
         </div>
 
-        <div className="ml-auto flex shrink-0 items-center gap-2 text-xl font-black sm:gap-3">
+        <div className="ml-auto flex shrink-0 items-center gap-3 text-xl font-black">
           <button type="button" aria-label="Open cart" className="relative leading-none">
             <span aria-hidden="true">🛒</span>
             <span className="absolute -right-2 -top-2 rounded-full border-2 border-kiln-ink bg-kiln-mustard px-1 text-[10px] leading-tight">
