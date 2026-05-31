@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Artisan Kiln — Frontend Test Task
 
-## Getting Started
+A responsive one-page ceramic tile order form built with Next.js, TypeScript, Tailwind CSS and Redux Toolkit.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Redux Toolkit
+- Framer Motion
+- Vitest
+
+## Features
+
+- Visible checkout validation for required fields, email, phone, card number, expiration date, and CVV.
+
+- Mobile order form layout
+- Desktop layout with 6x6 interactive design grid
+- Cart quantity update and item removal
+- Dynamic Subtotal, Shipping and Grand Total calculation
+- Shipping is free when subtotal is greater than $500; otherwise shipping is $25
+- Payment method switching
+- Credit card form validation
+- Required checkout field validation
+- Redux global state for cart, payment and design grid
+- Unit tests for calculation logic
+
+## Project structure
+
+This version is prepared for the default `create-next-app` structure without a `src` folder:
+
+```txt
+app/
+components/
+features/
+lib/
+__tests__/
+public/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open http://localhost:3000
 
-## Learn More
+## Run tests
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test
+```

@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
+@theme {
+  --color-kiln-paper: #f6efd9;
+  --color-kiln-paperDark: #efe1bd;
+  --color-kiln-ink: #171717;
+  --color-kiln-navy: #25385f;
+  --color-kiln-teal: #5f9d91;
+  --color-kiln-terracotta: #c87955;
+  --color-kiln-mustard: #d6a948;
+  --color-kiln-leaf: #3f7f73;
+
+  --font-display: "Arial Narrow", Arial, sans-serif;
+  --font-body: Arial, sans-serif;
+
+  --shadow-tile: 0 2px 0 rgba(0, 0, 0, 0.85), 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-display-local: "Arial Narrow";
+  --font-body-local: Arial;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  color: var(--color-kiln-ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(214, 169, 72, 0.12), transparent 25%),
+    radial-gradient(circle at 92% 20%, rgba(95, 157, 145, 0.12), transparent 24%),
+    var(--color-kiln-paper);
 }
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+@layer components {
+  .kiln-border {
+    border: 2px solid var(--color-kiln-ink);
+  }
+
+  .kiln-panel {
+    border: 2px solid var(--color-kiln-ink);
+    background-color: color-mix(in srgb, var(--color-kiln-paper) 90%, transparent);
+    box-shadow: var(--shadow-tile);
+  }
+
+  .form-line {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--color-kiln-ink);
+    background: transparent;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .form-line:focus {
+    background-color: rgb(255 255 255 / 0.4);
+  }
+
+  .field-error {
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    color: #b91c1c;
+  }
+
+  .tile-preview {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-kiln-ink);
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  }
+
+  .tile-ocean {
+    background-color: #f8f1dc;
+    background-image:
+      radial-gradient(ellipse at 20% 25%, transparent 18%, #25385f 19%, #25385f 22%, transparent 23%),
+      radial-gradient(ellipse at 70% 55%, transparent 18%, #25385f 19%, #25385f 22%, transparent 23%),
+      repeating-linear-gradient(170deg, transparent 0 8px, #25385f 9px 12px, transparent 13px 21px);
+  }
+
+  .tile-fern {
+    background-color: #edf6ec;
+    background-image:
+      linear-gradient(120deg, transparent 0 42%, #3f7f73 43% 46%, transparent 47%),
+      repeating-linear-gradient(145deg, transparent 0 12px, rgba(63, 127, 115, 0.85) 13px 17px, transparent 18px 28px);
+  }
+
+  .tile-dot {
+    background-color: #fbefd9;
+    background-image: radial-gradient(circle, #c87955 0 7px, transparent 8px);
+    background-size: 28px 28px;
+  }
+
+  .tile-star {
+    background-color: #f8f1dc;
+    background-image:
+      conic-gradient(from 18deg at 50% 50%, #d6a948 0 10%, transparent 10% 20%, #d6a948 20% 30%, transparent 30% 40%, #d6a948 40% 50%, transparent 50% 60%, #d6a948 60% 70%, transparent 70% 80%, #d6a948 80% 90%, transparent 90% 100%);
+    background-size: 36px 36px;
+  }
+}
+
